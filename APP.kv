@@ -1,0 +1,580 @@
+<MainScreen>:
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        spacing: 20
+        padding: 20
+        background_color: (192/255, 150/255, 72/255, 1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: ( 1, .1)
+            text: " Disease Predictor "
+            font_size: 34
+            background_color: (62/255, 33/255, 152/255, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: 50
+            spacing: 60
+
+            Button:
+                text: " 1.)  Diabetes Predictor "
+                font_size: 28
+                size_hint: (.65, .075)
+                pos_hint: {'center_x': 0.5}
+                background_color: (157/255, 157/255, 157/255, 1)
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'DiabetesPredictor'
+            Button:
+                text: " 2.)  Heart Disease Predictor "
+                font_size: 28
+                size_hint: (.65, .075)
+                pos_hint: {'center_x': 0.5}
+                background_color: (157/255, 157/255, 157/255, 1)
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'HeartDiseasePredictor'
+            Button:
+                text: " 3.)  Liver Disease Predictor "
+                font_size: 28
+                size_hint: (.65, .075)
+                pos_hint: {'center_x': 0.5}
+                background_color: (157/255, 157/255, 157/255, 1)
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'LiverDiseasePredictor'
+
+<DiabetesPredictor>:
+
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        spacing: 20
+        padding: 20
+        background_color: (192/255, 150/255, 72/255, 1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: ( 1, .1)
+            text: " Diabetes Predictor "
+            font_size: 34
+            background_color: (62/255, 33/255, 152/255, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        GridLayout:
+            size_hint: ( 1, .85)
+            spacing: 20
+            padding: 20
+            cols: 2
+
+            Label:
+                text: "Pregnancy count\n{Number of times pregnant}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f11
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f11")
+            Label:
+                text: "Glucose level\n{Plasma glucose concentration, 2 hours in an oral glucose tolerance test}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f12
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f12")
+            Label:
+                text: "Blood pressure\n{Diastolic blood pressure (mm Hg)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f13
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f13")
+            Label:
+                text: "Skin thickness\n{Triceps skin fold thickness (mm)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f14
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f14")
+            Label:
+                text: "Insulin level\n{2-Hour serum insulin (mcU/ml))}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f15
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f15")
+            Label:
+                text: "BMI\n{Body mass index (weight in kg/(height in m)^2)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f16
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f16")
+            Label:
+                text: "Diabetes Pedigree Function"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f17
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f17")
+            Label:
+                text: "Age\n{in years} "
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f18
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process1("f18")
+
+        Button:
+            text: "Predict"
+            font_size: 28
+            size_hint: (.2, .075)
+            pos_hint: {'center_x': 0.5}
+            background_color: (157/255, 157/255, 157/255, 1)
+            on_press: root.calculate1()
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (.3, .075)
+            pos_hint: {'center_x' : 0.45}
+            spacing: 10
+
+            Label:
+                text: "Result : "
+                font_size: 28
+                color: (245/255, 187/255, 239/255, 1)
+
+            Label:
+                id: result1
+                text: ""
+                font_size: 32
+                color: (45/255, 227/255, 189/255, 1)
+
+        Button:
+            text: "Go to Main Menu"
+            size_hint: (0.2, 0.075)
+            pos_hint: {'center_x': 0.9}
+            background_color : 1, 1, 0, 1
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'MainScreen'
+
+
+<HeartDiseasePredictor>:
+
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        spacing: 20
+        padding: 20
+        background_color: (192/255, 150/255, 72/255, 1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: ( 1, .1)
+            text: " Heart Disease Predictor "
+            font_size: 34
+            background_color: (62/255, 33/255, 152/255, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        GridLayout:
+            size_hint: ( 1, .85)
+            spacing: 20
+            padding: 20
+            cols: 4
+
+            Label:
+                text: "Age\n{in years}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f21
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f21")
+            Label:
+                text: "Gender\n{1 for male, 0 for female}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f22
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f22")
+            Label:
+                text: "Chest Pain type\n{4 types, (0, 1, 2, 3)}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f23
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f23")
+            Label:
+                text: "Resting Blood Pressure\n{in mm Hg on admission to the hospital}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f24
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f24")
+            Label:
+                text: "Serum cholestoral\n{in mg/dl}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f25
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f25")
+            Label:
+                text: "Fasting blood sugar\n{ > 120 mg/dl (1 = true, 0 = false)}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f26
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f26")
+            Label:
+                text: "Resting ElectroCardiographic results\n{3 types, (0, 1, 2)}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f27
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f27")
+            Label:
+                text: "Maximum heart rate achieved"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f28
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f28")
+            Label:
+                text: "Exercise Induced Angina\n{1 = yes; 0 = no}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f29
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f29")
+            Label:
+                text: "ST depression induced by exercise relative to rest"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f210
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f210")
+            Label:
+                text: "Slope of the peak exercise ST segment\n{3 types, (0, 1, 2)}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f211
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f211")
+            Label:
+                text: "number of major vessels (0-3) colored by flourosopy\n{5 types, (0, 1, 2, 3, 4)}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f212
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f212")
+            Label:
+                text: "Thalassemia level\n{1 = normal, 2 = fixed defect, 3 = reversible defect}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f213
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process2("f213")
+
+        Button:
+            text: "Predict"
+            font_size: 28
+            size_hint: (.2, .075)
+            pos_hint: {'center_x': 0.5}
+            background_color: (157/255, 157/255, 157/255, 1)
+            on_press: root.calculate2()
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (.3, .075)
+            pos_hint: {'center_x' : 0.45}
+            spacing: 10
+
+            Label:
+                text: "Result : "
+                font_size: 28
+                color: (245/255, 187/255, 239/255, 1)
+
+            Label:
+                id: result2
+                text: ""
+                font_size: 32
+                color: (45/255, 227/255, 189/255, 1)
+
+        Button:
+            text: "Go to Main Menu"
+            size_hint: (0.2, 0.075)
+            pos_hint: {'center_x': 0.9}
+            background_color : 1, 1, 0, 1
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'MainScreen'
+
+
+<LiverDiseasePredictor>:
+
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        spacing: 20
+        padding: 20
+        background_color: (192/255, 150/255, 72/255, 1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: ( 1, .1)
+            text: " Liver Disease Predictor "
+            font_size: 34
+            background_color: (62/255, 33/255, 152/255, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        GridLayout:
+            size_hint: ( 1, .85)
+            spacing: 20
+            padding: 20
+            cols: 4
+
+            Label:
+                text: "Age\n{in years}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f31
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f31")
+            Label:
+                text: "Gender\n{1 for male, 0 for female}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f32
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f32")
+            Label:
+                text: "Total Bilirubin\n{Total Billirubin in mg/dL}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f33
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f33")
+            Label:
+                text: "Direct Bilirubin\n{Conjugated Billirubin in mg/dL}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f34
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f34")
+            Label:
+                text: "Alkaline Phosphotase\n{ALP in IU/L}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f35
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f35")
+            Label:
+                text: "Alamine Aminotransferase\n{ALT in IU/L}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f36
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f36")
+            Label:
+                text: "Aspartate Aminotransferase\n{AST in IU/L}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f37
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f37")
+            Label:
+                text: "Total Protiens\n{in g/dL}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f38
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f38")
+            Label:
+                text: "Albumin level\n{in g/dL}"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f39
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f39")
+            Label:
+                text: "Albumin to Glubulin ratio"
+                font_size: 24
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f310
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: root.process3("f310")
+
+        Button:
+            text: "Predict"
+            font_size: 28
+            size_hint: (.2, .075)
+            pos_hint: {'center_x': 0.5}
+            background_color: (157/255, 157/255, 157/255, 1)
+            on_press: root.calculate3()
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (.3, .075)
+            pos_hint: {'center_x' : 0.45}
+            spacing: 5
+
+            Label:
+                text: "Result : "
+                font_size: 28
+                color: (245/255, 187/255, 239/255, 1)
+
+            Label:
+                id: result3
+                text: ""
+                font_size: 32
+                color: (45/255, 227/255, 189/255, 1)
+
+        Button:
+            text: "Go to Main Menu"
+            size_hint: (0.2, 0.075)
+            pos_hint: {'center_x': 0.9}
+            background_color : 1, 1, 0, 1
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'MainScreen'
